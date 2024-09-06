@@ -17,7 +17,7 @@ connectDB()
         
     })
     app.listen(process.env.PORT || 8000,()=>{
-        console.log(`sercer is running:${process.env.PORT}`)
+        console.log(`server is running:${process.env.PORT}`)
     })
 })
 .catch((err)=>{
