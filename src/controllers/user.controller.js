@@ -3,8 +3,8 @@ import { Apierror } from "../utils/Apierror.js";
 import { User } from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/apiresponse.js";
-import { Jwt } from "jsonwebtoken";
-import { response } from "express";
+import Jwt  from "jsonwebtoken";
+import  Response  from "express";
 import mongoose from "mongoose";
 
 const generateAccessAndRefreshTokens = async (userId) => {
@@ -157,8 +157,8 @@ const logoutUser = asynchandler(async (req, res) => {
   User.findByIdAndUpdate(
     req.user._id,
     {
-      $set: {
-        refreshToken: undefined,
+      $unset: {
+        refreshToken: 1, // this removes the field from document
       },
     },
     {
